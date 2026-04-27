@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { questions } from "./data/questions";
+import "./juegoPreguntas.css";
 
 function Juego() {
     const [actual, setActual] = useState(0);
@@ -25,34 +26,33 @@ function Juego() {
     };
 
     return (
-        <div>
-            <h3>{pregunta.question}</h3>
+        <div className="container">
+            <div className="card">
+                <h2 className="titulo">Preguntas</h2>
 
-            {/* 👇 crear botones automáticamente */}
-            {respuestas.map((resp, i) => (
-                <button key={i} onClick={() => elegir(resp)}>
-                    {resp}
+                <h3>{pregunta.question}</h3>
+
+                <div className="opciones">
+                    {pregunta.answers.map((resp, i) => (
+                        <div key={i} className="opcion" onClick={() => elegir(i)}>
+                            <span className="letra">
+                                {String.fromCharCode(97 + i)}
+                            </span>
+                            {resp}
+                        </div>
+                    ))}
+                </div>
+
+                {elegida !== null && (
+                    <p>
+                        {elegida === pregunta.correct ? "Correcto" : "Incorrecto"}
+                    </p>
+                )}
+
+                <button className="boton" onClick={siguiente}>
+                    Siguiente
                 </button>
-            ))}
-
-            {/* resultado */}
-            {elegida && (
-                <p>
-                    {elegida === pregunta.correct
-                        ? "Correcto"
-                        : "Incorrecto"}
-                </p>
-            )}
-
-            {/* botón siguiente */}
-            {elegida && actual < questions.length - 1 && (
-                <button onClick={siguiente}>Siguiente</button>
-            )}
-
-            {/* fin */}
-            {elegida && actual === questions.length - 1 && (
-                <p>Terminaste</p>
-            )}
+            </div>
         </div>
     );
 }
