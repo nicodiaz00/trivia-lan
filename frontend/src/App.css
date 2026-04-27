@@ -1,11 +1,11 @@
 :root {
-  background-color: #87CEEB !important;
-  /* Fondo celeste */
+  background-color: #B3E5FC !important;
+
 }
 
 body {
-  background-color: #ffffff !important;
-  /* Fondo celeste */
+  background-color: #B3E5FC !important;
+  /* Fondo celeste clarito */
   color: #000;
 }
 
@@ -13,8 +13,8 @@ body {
   max-width: 550px;
   margin: 40px auto;
   padding: 30px;
-  background-color: #87CEEB !important;
-  /* Formulario color blanco */
+  background-color: #ffffff !important;
+  /* Formulario en blanco */
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   color: #000 !important;
@@ -64,7 +64,8 @@ body {
   width: 100%;
   margin-top: 30px;
   padding: 14px;
-  background-color: #000;
+  background-color: #3498db;
+  /* Celeste más oscuro */
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -75,5 +76,6 @@ body {
 }
 
 .form-container button[type="submit"]:hover {
-  background-color: #444;
+  background-color: #2980b9;
+  /* Aún más oscuro al pasar el mouse */
 }
