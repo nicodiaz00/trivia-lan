@@ -1,0 +1,79 @@
+:root {
+  background-color: #87CEEB !important;
+  /* Fondo celeste */
+}
+
+body {
+  background-color: #ffffff !important;
+  /* Fondo celeste */
+  color: #000;
+}
+
+.form-container {
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #87CEEB !important;
+  /* Formulario color blanco */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  color: #000 !important;
+  text-align: left;
+}
+
+.form-container h2 {
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.form-container label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Marcos de preguntas en negro los bordes */
+.form-container input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: 2px solid #000000 !important;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #000;
+  box-sizing: border-box;
+  font-size: 16px;
+  outline: none;
+}
+
+.form-container input[type="text"]:focus {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-container input[type="radio"] {
+  margin-right: 5px;
+  margin-left: 10px;
+  accent-color: #000;
+  transform: scale(1.2);
+}
+
+.form-container button[type="submit"] {
+  width: 100%;
+  margin-top: 30px;
+  padding: 14px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: #444;
+}
