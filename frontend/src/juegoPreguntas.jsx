@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { questions } from "./data/questions";
+import { questions } from "./data/question.jsx";
 import "./juegoPreguntas.css";
 
 function Juego() {
@@ -7,33 +7,29 @@ function Juego() {
     const [elegida, setElegida] = useState(null);
 
     const pregunta = questions[actual];
+    const respuestas = pregunta.answers; // Usamos directamente el array del archivo de datos
 
-    // 👇 lista de respuestas
-    const respuestas = [
-        pregunta.answer1,
-        pregunta.answer2,
-        pregunta.answer3,
-        pregunta.answer4
-    ];
-
-    const elegir = (resp) => {
-        setElegida(resp);
+    const elegir = (index) => {
+        setElegida(index);
     };
 
     const siguiente = () => {
-        setElegida(null);
-        setActual(actual + 1);
+        if (actual < questions.length - 1) {
+            setElegida(null);
+            setActual(actual + 1);
+        } else {
+            alert("¡Trivia completada!");
+        }
     };
 
     return (
         <div className="container">
             <div className="card">
                 <h2 className="titulo">Preguntas</h2>
-
                 <h3>{pregunta.question}</h3>
 
                 <div className="opciones">
-                    {pregunta.answers.map((resp, i) => (
+                    {respuestas.map((resp, i) => (
                         <div key={i} className="opcion" onClick={() => elegir(i)}>
                             <span className="letra">
                                 {String.fromCharCode(97 + i)}
@@ -44,13 +40,13 @@ function Juego() {
                 </div>
 
                 {elegida !== null && (
-                    <p>
-                        {elegida === pregunta.correct ? "Correcto" : "Incorrecto"}
+                    <p style={{ marginTop: "10px", fontWeight: "bold" }}>
+                        {elegida === pregunta.correct ? "✅ Correcto" : "❌ Incorrecto"}
                     </p>
                 )}
 
-                <button className="boton" onClick={siguiente}>
-                    Siguiente
+                <button className="boton" onClick={siguiente} disabled={elegida === null}>
+                    {actual === questions.length - 1 ? "Finalizar" : "Siguiente"}
                 </button>
             </div>
         </div>
