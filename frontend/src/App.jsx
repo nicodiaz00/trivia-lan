@@ -1,4 +1,3 @@
-// Importamos tu componente desde la carpeta components
 import True_False from './components/True_False';
 import './App.css';
 

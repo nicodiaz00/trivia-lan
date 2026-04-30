@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../App.css'; // Aseguramos que importe los estilos
+import '../App.css'; 
 
 export default function True_False({ 
   pregunta = "JavaScript es un lenguaje compilado.", 
@@ -22,10 +22,10 @@ export default function True_False({
   return (
     <div className="container">
       <div className="card">
-        {/* Usamos el título y la clase exacta del Equipo 2 */}
+       
         <h2 className="titulo">Preguntas</h2>
         
-        {/* Texto de la pregunta con un estilo limpio que acompaña el diseño */}
+        
         <p style={{ color: '#888', marginBottom: '25px', fontSize: '1.2rem', fontWeight: '500' }}>
           {pregunta}
         </p>
