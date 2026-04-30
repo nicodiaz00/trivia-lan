@@ -1,12 +1,12 @@
-import PreguntaForm from "./components/PreguntaForm";
+import True_False from './components/True_False';
+import './App.css';
 
 function App() {
   return (
     <div>
-      <h1>Trivia LAN</h1>
-      <PreguntaForm />
+      <True_False pregunta="JavaScript es un lenguaje compilado." />
     </div>
-  );
+  )
 }
 
 export default App;
