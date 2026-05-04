@@ -107,6 +107,24 @@
       "type": "verdadero_falso",
       "correcta": "Falso",
       "id": "tLHRD_l1ZY8"
+    },
+    {
+      "pregunta": "ddgrdgrd",
+      "answers": [
+        "gfgfd",
+        "gfhgf",
+        "jhgjyg",
+        "jhjghjhjh"
+      ],
+      "correct": 0,
+      "type": "multiple",
+      "id": "j7C_leGHfjY"
+    },
+    {
+      "pregunta": "234567u8i",
+      "type": "verdadero_falso",
+      "correcta": "Falso",
+      "id": "PedjAQ-RQXo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
