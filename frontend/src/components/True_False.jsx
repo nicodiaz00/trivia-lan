@@ -1,22 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../App.css'; 
 
-export default function True_False({ 
-  pregunta = "JavaScript es un lenguaje compilado.", 
-  respuestaCorrecta = "Falso" 
-}) {
-  
+export default function True_False() {
+  const [questions, setQuestions] = useState([]);
+  const [actual, setActual] = useState(0);
   const [selectedOption, setSelectedOption] = useState("");
   const [feedback, setFeedback] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:3000/questions?type=verdadero_falso")
+        .then(res => res.json())
+        .then(data => setQuestions(data))
+        .catch(err => console.error("Error cargando preguntas:", err));
+  }, []);
+
+  if (questions.length === 0) return <div>Cargando preguntas...</div>;
+
+  const preguntaObj = questions[actual];
 
   const handleSelect = (opcion) => {
     setSelectedOption(opcion);
     
-    if (opcion === respuestaCorrecta) {
+    if (opcion === preguntaObj.correcta) {
       setFeedback("¡Correcto!");
     } else {
       setFeedback("Incorrecto.");
     }
+  };
+
+  const siguiente = () => {
+      if (actual < questions.length - 1) {
+          setSelectedOption("");
+          setFeedback("");
+          setActual(actual + 1);
+      } else {
+          alert("¡Trivia completada!");
+      }
   };
 
   return (
@@ -25,9 +44,8 @@ export default function True_False({
        
         <h2 className="titulo">Preguntas</h2>
         
-        
         <p style={{ color: '#888', marginBottom: '25px', fontSize: '1.2rem', fontWeight: '500' }}>
-          {pregunta}
+          {preguntaObj.pregunta || preguntaObj.question}
         </p>
 
         <div className="opciones">
@@ -64,8 +82,8 @@ export default function True_False({
           </p>
         )}
 
-        <button className="boton">
-          Siguiente
+        <button className="boton" onClick={siguiente} disabled={!selectedOption}>
+          {actual === questions.length - 1 ? "Finalizar" : "Siguiente"}
         </button>
       </div>
     </div>

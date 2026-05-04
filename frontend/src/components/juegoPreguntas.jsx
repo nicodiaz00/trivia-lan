@@ -1,10 +1,19 @@
-import { useState } from "react";
-import { questions } from "./data/question.jsx";
+import { useState, useEffect } from "react";
 import "./juegoPreguntas.css";
 
 function Juego() {
+    const [questions, setQuestions] = useState([]);
     const [actual, setActual] = useState(0);
     const [elegida, setElegida] = useState(null);
+
+    useEffect(() => {
+        fetch("http://localhost:3000/questions?type=multiple")
+            .then(res => res.json())
+            .then(data => setQuestions(data))
+            .catch(err => console.error("Error cargando preguntas:", err));
+    }, []);
+
+    if (questions.length === 0) return <div>Cargando preguntas...</div>;
 
     const pregunta = questions[actual];
     const respuestas = pregunta.answers; // Usamos directamente el array del archivo de datos
@@ -26,7 +35,7 @@ function Juego() {
         <div className="container">
             <div className="card">
                 <h2 className="titulo">Preguntas</h2>
-                <h3>{pregunta.question}</h3>
+                <h3>{pregunta.question || pregunta.pregunta}</h3>
 
                 <div className="opciones">
                     {respuestas.map((resp, i) => (

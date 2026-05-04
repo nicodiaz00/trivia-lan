@@ -1,0 +1,113 @@
+{
+  "questions": [
+    {
+      "id": "1",
+      "pregunta": "¿Qué significa la sigla 'SSR' en el desarrollo web?",
+      "answers": [
+        "Server-Side Rendering",
+        "Simple Site Repair",
+        "Static System Resource",
+        "Server Syntax Rules"
+      ],
+      "correct": 0,
+      "type": "multiple"
+    },
+    {
+      "id": "2",
+      "pregunta": "En una base de datos relacional, ¿qué comando se usa para recuperar datos?",
+      "answers": [
+        "INSERT",
+        "UPDATE",
+        "SELECT",
+        "DELETE"
+      ],
+      "correct": 2,
+      "type": "multiple"
+    },
+    {
+      "id": "3",
+      "pregunta": "¿Qué significa HTML?",
+      "answers": [
+        "HyperText Markup Language",
+        "HighText Machine Language",
+        "HyperLoop Machine Language",
+        "Helicopter Terminal Motorboats"
+      ],
+      "correct": 0,
+      "type": "multiple"
+    },
+    {
+      "id": "4",
+      "pregunta": "¿Para qué sirve CSS en una página web?",
+      "answers": [
+        "Para definir la estructura",
+        "Para darle estilos y diseño",
+        "Para la lógica y algoritmos",
+        "Para guardar datos en la base"
+      ],
+      "correct": 1,
+      "type": "multiple"
+    },
+    {
+      "id": "5",
+      "pregunta": "¿Cuál de estas opciones NO es un lenguaje de programación?",
+      "answers": [
+        "Python",
+        "Java",
+        "HTML",
+        "C++"
+      ],
+      "correct": 2,
+      "type": "multiple"
+    },
+    {
+      "id": "6",
+      "pregunta": "JavaScript es un lenguaje compilado.",
+      "correcta": "Falso",
+      "type": "verdadero_falso"
+    },
+    {
+      "id": "7",
+      "pregunta": "React es una biblioteca de JavaScript para construir interfaces de usuario.",
+      "correcta": "Verdadero",
+      "type": "verdadero_falso"
+    },
+    {
+      "id": "8",
+      "pregunta": "En CSS, el selector '#' se usa para seleccionar elementos por su clase.",
+      "correcta": "Falso",
+      "type": "verdadero_falso"
+    },
+    {
+      "id": "9",
+      "pregunta": "TypeScript añade tipado estático opcional a JavaScript.",
+      "correcta": "Verdadero",
+      "type": "verdadero_falso"
+    },
+    {
+      "id": "10",
+      "pregunta": "SQL significa 'Structured Question Language'.",
+      "correcta": "Falso",
+      "type": "verdadero_falso"
+    },
+    {
+      "pregunta": "12341",
+      "answers": [
+        "123",
+        "12",
+        "1",
+        "0"
+      ],
+      "correct": 2,
+      "type": "multiple",
+      "id": "Fq0kklMYvXU"
+    },
+    {
+      "pregunta": "asdfasdf",
+      "type": "verdadero_falso",
+      "correcta": "Falso",
+      "id": "tLHRD_l1ZY8"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

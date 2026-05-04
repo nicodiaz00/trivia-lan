@@ -9,11 +9,22 @@ export default function VerdaderoFalsoForm() {
     e.preventDefault();
     const nuevaPregunta = {
       pregunta,
-      tipo: "verdadero_falso",
-      correcta,
+      type: "verdadero_falso",
+      correcta: correcta === "verdadero" ? "Verdadero" : "Falso",
     };
-    console.log("Pregunta guardada:", nuevaPregunta);
-    // Aquí podrías enviar la pregunta a tu backend o API
+
+    fetch("http://localhost:3000/questions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(nuevaPregunta),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        alert("¡Pregunta de verdadero o falso guardada exitosamente!");
+        setPregunta("");
+        setCorrecta(null);
+      })
+      .catch((err) => console.error("Error guardando pregunta:", err));
   };
 
   return (

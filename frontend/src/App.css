@@ -53,10 +53,6 @@
     cursor: pointer;
 }
 
-:root {
-  background-color: #B3E5FC !important;
-}
-
 body {
   background-color: #B3E5FC !important;
   /* Fondo celeste clarito */

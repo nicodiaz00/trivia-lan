@@ -16,11 +16,24 @@ export default function PreguntaForm() {
     e.preventDefault();
     const nuevaPregunta = {
       pregunta,
-      opciones,
-      correcta,
+      answers: opciones,
+      correct: correcta,
+      type: "multiple",
     };
-    console.log("Pregunta guardada:", nuevaPregunta);
-    // Aquí podrías enviar la pregunta a tu backend o API
+
+    fetch("http://localhost:3000/questions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(nuevaPregunta),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        alert("¡Pregunta de opción múltiple guardada exitosamente!");
+        setPregunta("");
+        setOpciones(["", "", "", ""]);
+        setCorrecta(null);
+      })
+      .catch((err) => console.error("Error guardando pregunta:", err));
   };
 
   return (

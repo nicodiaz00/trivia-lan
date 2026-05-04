@@ -1,12 +1,32 @@
 import { useState } from "react";
 import PreguntaForm from "./components/PreguntaForm";
 import VerdaderoFalsoForm from "./components/VerdaderoFalsoForm";
-import Juego from "./juegoPreguntas";
+import Juego from "./components/juegoPreguntas";
 import True_False from "./components/True_False";
 import "./App.css";
 
+// Componente reutilizable para la sub-navegación (DRY)
+function SubNav({ vista, setVista }) {
+  return (
+    <nav className="nav-bar">
+      <button 
+        className={vista === "opcionMultiple" ? "active" : ""} 
+        onClick={() => setVista("opcionMultiple")}
+      >
+        Opción Múltiple
+      </button>
+      <button 
+        className={vista === "verdaderoFalso" ? "active" : ""} 
+        onClick={() => setVista("verdaderoFalso")}
+      >
+        Verdadero o Falso
+      </button>
+    </nav>
+  );
+}
+
 function App() {
-  const [paginaActual, setPaginaActual] = useState("crear");
+  const [paginaActual, setPaginaActual] = useState("inicio");
   const [vistaActual, setVistaActual] = useState("opcionMultiple");
   const [vistaJuego, setVistaJuego] = useState("opcionMultiple");
 
@@ -48,21 +68,7 @@ function App() {
         {paginaActual === "crear" && (
           <div>
             <h1>Crear Nuevas Preguntas</h1>
-            {/* Sub-navegación para elegir el tipo de pregunta */}
-            <nav className="nav-bar">
-              <button 
-                className={vistaActual === "opcionMultiple" ? "active" : ""} 
-                onClick={() => setVistaActual("opcionMultiple")}
-              >
-                Opción Múltiple
-              </button>
-              <button 
-                className={vistaActual === "verdaderoFalso" ? "active" : ""} 
-                onClick={() => setVistaActual("verdaderoFalso")}
-              >
-                Verdadero o Falso
-              </button>
-            </nav>
+            <SubNav vista={vistaActual} setVista={setVistaActual} />
             
             {vistaActual === "opcionMultiple" && <PreguntaForm />}
             {vistaActual === "verdaderoFalso" && <VerdaderoFalsoForm />}
@@ -72,21 +78,7 @@ function App() {
         {paginaActual === "ver" && (
           <div>
             <h1>Banco de Preguntas / Jugar</h1>
-            
-            <nav className="nav-bar">
-              <button 
-                className={vistaJuego === "opcionMultiple" ? "active" : ""} 
-                onClick={() => setVistaJuego("opcionMultiple")}
-              >
-                Opción Múltiple
-              </button>
-              <button 
-                className={vistaJuego === "verdaderoFalso" ? "active" : ""} 
-                onClick={() => setVistaJuego("verdaderoFalso")}
-              >
-                Verdadero o Falso
-              </button>
-            </nav>
+            <SubNav vista={vistaJuego} setVista={setVistaJuego} />
 
             {vistaJuego === "opcionMultiple" && <Juego />}
             {vistaJuego === "verdaderoFalso" && <True_False />}
