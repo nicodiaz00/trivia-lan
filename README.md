@@ -16,8 +16,7 @@ Espera a que termine de instalar todo.
 ```bash
 npm run dev
 ```
-Espera a que termine de compilar. Una vez compilado, se abrirá una pestaña en tu navegador con la aplicación.
-Debes tener el backend corriendo para que la aplicación funcione.
+Espera a que termine de compilar. Una vez compilado debes tener el backend corriendo para que la aplicación funcione. Para correr el backend ejecuta el siguiente comando:
 
 **Terminal 2: Backend**
 ```bash
