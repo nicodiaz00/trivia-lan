@@ -1,7 +1,5 @@
 # Trivia LAN 🎮
 
-Plataforma para la gestión y juego de trivias corporativas.
-
 ## 🚀 Cómo Empezar
 
 El proyecto está dividido en un frontend (React + Vite) y un backend ligero (JSON Server).
@@ -11,19 +9,21 @@ El proyecto está dividido en un frontend (React + Vite) y un backend ligero (JS
 cd frontend
 npm install
 ```
+Espera a que termine de instalar todo.
 
 ### 2. Ejecución
 **Terminal 1: Frontend**
 ```bash
-cd frontend
 npm run dev
 ```
+Espera a que termine de compilar. Una vez compilado, se abrirá una pestaña en tu navegador con la aplicación.
+Debes tener el backend corriendo para que la aplicación funcione.
 
 **Terminal 2: Backend**
 ```bash
 cd frontend
 npm run server
 ```
-
+Espera a que termine de compilar. Una vez compilado, se abrirá una pestaña en tu navegador con la aplicación en la dirección: http://localhost:3000
 ---
 Desarrollado para el TP de Economía Empresarial.
